@@ -5,13 +5,13 @@
 MOSS (Machine to Machine Operation Security System) is a cryptographic signing protocol for AI agents. Every agent gets an identity. Every output gets a signature. Verifiable, tamper-proof, reproducible.
 
 [![CI](https://github.com/mosscomputing/moss/actions/workflows/ci.yml/badge.svg)](https://github.com/mosscomputing/moss/actions/workflows/ci.yml)
-[![PyPI version](https://badge.fury.io/py/moss.svg)](https://badge.fury.io/py/moss)
+[![PyPI version](https://badge.fury.io/py/moss-sdk.svg)](https://badge.fury.io/py/moss-sdk)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Installation
 
 ```bash
-pip install moss
+pip install moss-sdk
 ```
 
 ## Quick Start
@@ -60,10 +60,10 @@ moss diff envelope1.json envelope2.json
 ## Framework Integrations
 
 ```bash
-pip install moss-crewai    # CrewAI
-pip install moss-autogen   # AutoGen
-pip install moss-langgraph # LangGraph
-pip install moss-langchain # LangChain
+pip install moss-sdk-crewai    # CrewAI
+pip install moss-sdk-autogen   # AutoGen
+pip install moss-sdk-langgraph # LangGraph
+pip install moss-sdk-langchain # LangChain
 ```
 
 ## Specification
