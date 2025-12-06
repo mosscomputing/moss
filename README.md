@@ -1,77 +1,39 @@
 # MOSS
 
-**Know exactly which agent produced what.**
-
-MOSS (Machine to Machine Operation Security System) is a cryptographic signing protocol for AI agents. Every agent gets an identity. Every output gets a signature. Verifiable, tamper-proof, reproducible.
+MOSS is a signing protocol for AI agents. It binds cryptographic identities to agents and produces verifiable signatures on their outputs.
 
 [![CI](https://github.com/mosscomputing/moss/actions/workflows/ci.yml/badge.svg)](https://github.com/mosscomputing/moss/actions/workflows/ci.yml)
-[![PyPI version](https://badge.fury.io/py/moss-sdk.svg)](https://badge.fury.io/py/moss-sdk)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PyPI](https://img.shields.io/pypi/v/moss-sdk)](https://pypi.org/project/moss-sdk/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-## Installation
-
+## Install
 ```bash
 pip install moss-sdk
 ```
 
-## Quick Start
-
+## Usage
 ```python
 from moss import Subject
 
-# Create an agent identity
 agent = Subject.create("moss:dev:my-agent")
-
-# Sign any output
 envelope = agent.sign({"action": "approved", "amount": 500})
 
-# Verify
 result = Subject.verify(envelope)
 assert result.valid
-print(result.subject)  # moss:dev:my-agent
 ```
-
-## Why MOSS?
-
-Multi-agent pipeline breaks, four agents touched it, no idea which one — you've been there. MOSS gives every agent an identity and signs every output so you can trace, diff, and verify.
-
-**Security guarantees:**
-- **Identity** — Unique subject per agent, bound to cryptographic key pair
-- **Integrity** — Payload hash detects any modification
-- **Replay protection** — Sequence numbers prevent reuse
-- **Post-quantum** — ML-DSA-44 (FIPS 204) signatures survive quantum
 
 ## CLI
-
 ```bash
-# Create a subject
 moss subject create moss:dev:my-agent
-
-# Sign a payload
 echo '{"action": "test"}' | moss sign moss:dev:my-agent - > envelope.json
-
-# Verify
 moss verify payload.json envelope.json
-
-# Compare envelopes
-moss diff envelope1.json envelope2.json
 ```
 
-## Framework Integrations
+## Protocol
 
-```bash
-pip install moss-sdk-crewai    # CrewAI
-pip install moss-sdk-autogen   # AutoGen
-pip install moss-sdk-langgraph # LangGraph
-pip install moss-sdk-langchain # LangChain
-```
+MOSS implements `moss-0001`. See [SPEC.md](SPEC.md).
 
-## Specification
-
-MOSS implements the `moss-0001` specification. See [SPEC.md](SPEC.md) for the full protocol specification.
-
-### Envelope Format
-
+### Envelope
 ```json
 {
   "spec": "moss-0001",
@@ -86,56 +48,34 @@ MOSS implements the `moss-0001` specification. See [SPEC.md](SPEC.md) for the fu
 }
 ```
 
-### Verification Procedure
+### Verification
 
-1. Require `spec == "moss-0001"`
+1. Check `spec == "moss-0001"`
 2. Compute `hash = base64url(SHA-256(canonical(payload)))`
 3. Assert `hash == envelope.payload_hash`
 4. Resolve `(subject, key_version) → public_key`
 5. Verify `ML-DSA-44.verify(public_key, canonical(signed_bytes), signature)`
 
-## Local-First
+## Cryptography
 
-MOSS works entirely offline. Keys are stored locally at `~/.moss/keys/`. No account required. No cloud. No tracking.
-
-To encrypt keys at rest, set:
-```bash
-export MOSS_KEY_PASSPHRASE="your-secure-passphrase"
-```
-
-## What MOSS Collects
-
-**In the envelope:** `subject`, `payload_hash` (not the payload itself), `seq`, `issued_at`, `signature`
-
-**Never:** Your payload content, LLM prompts/responses, user data, PII, telemetry
-
-## Technical Details
-
-| Component | Value |
-|-----------|-------|
-| Signature | ML-DSA-44 (FIPS 204, Dilithium2) |
+| | |
+|---|---|
+| Signatures | ML-DSA-44 (FIPS 204) |
 | Hash | SHA-256 |
-| Encoding | base64url (no padding) |
-| Canonicalization | RFC 8785 (JCS) |
-| Key encryption | AES-256-GCM + Scrypt |
-| Public key size | 1312 bytes |
-| Signature size | 2420 bytes |
-| Overhead | <1ms sign, <1ms verify, ~2KB envelope |
+| Encoding | base64url, no padding |
+| Canonicalization | RFC 8785 |
+| Key storage | AES-256-GCM + Scrypt |
+
+Keys stored at `~/.moss/keys/`. Set `MOSS_KEY_PASSPHRASE` to encrypt at rest.
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Security
 
-See [SECURITY.md](SECURITY.md) for reporting vulnerabilities.
+Report vulnerabilities to ysablewolf@iampass.com. See [SECURITY.md](SECURITY.md).
 
 ## License
 
-MIT — see [LICENSE](LICENSE)
-
-## Links
-
-- **Website:** [mosscomputing.com](https://mosscomputing.com)
-- **Spec:** [SPEC.md](SPEC.md)
-- **Discord:** [Join](https://discord.gg/2QewJsBc)
+MIT
