@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "moss"
+name = "moss-sdk"
 version = "0.1.0"
 description = "Cryptographic identity and signed outputs for AI agents"
 readme = "README.md"
