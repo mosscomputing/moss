@@ -1,4 +1,3 @@
-import pytest
 from moss.encoding import b64url_encode, b64url_decode
 
 

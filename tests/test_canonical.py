@@ -1,4 +1,3 @@
-import pytest
 from moss.canonical import cjjson, sha256_b64url, payload_hash
 
 

@@ -1,4 +1,3 @@
-import pytest
 from moss.crypto import MossCrypto
 
 
