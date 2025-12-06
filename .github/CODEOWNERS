@@ -1,7 +1,7 @@
 # CODEOWNERS - These users must approve PRs to protected files
 
 # Default owners for everything
-* @YsableWolf
+* @Lechatdiabolique
 
 # Spec changes require explicit approval
 SPEC.md @YsableWolf
