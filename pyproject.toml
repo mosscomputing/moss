@@ -38,3 +38,6 @@ moss = "moss.cli:main"
 [project.urls]
 Homepage = "https://mosscomputing.com"
 Repository = "https://github.com/mosscomputing/moss"
+
+[tool.hatch.build.targets.wheel]
+packages = ["moss"]
