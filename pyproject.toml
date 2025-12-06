@@ -9,7 +9,7 @@ description = "Cryptographic identity and signed outputs for AI agents"
 readme = "README.md"
 requires-python = ">=3.9"
 license = "MIT"
-authors = [{ name = "MOSS Computing" }]
+authors = [{ name = "Carey D'Souza" }]
 keywords = ["ai", "agents", "signing", "cryptography", "post-quantum", "identity"]
 classifiers = [
     "Development Status :: 3 - Alpha",

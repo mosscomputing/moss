@@ -3,6 +3,7 @@
 **Spec ID:** `moss-0001`  
 **Version:** 1  
 **Status:** Draft  
+**Author:** Carey D'Souza  
 **Last Updated:** 2024-12-06
 
 ## Abstract
