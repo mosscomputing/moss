@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "spec": "moss-0001",
+    "version": 1,
+    "alg": "ML-DSA-44",
+    "expected_lengths": {
+      "public_key_bytes": 1312,
+      "signature_bytes": 2420
+    }
+  },
+  "fixed_fields": {
+    "subject": "moss:dev:checkout",
+    "key_version": 1,
+    "issued_at": 1733200000,
+    "seq": 1
+  },
+  "cases": [
+    {
+      "name": "simple",
+      "payload": {"foo": "bar"},
+      "payload_canonical": "{\"foo\":\"bar\"}",
+      "payload_hash_b64url": "eji_gfOD9pQzrW6QDTWz4jhVk_dqe3q11DVbi6Qe4ks",
+      "signed_bytes_canonical": "{\"alg\":\"ML-DSA-44\",\"issued_at\":1733200000,\"key_version\":1,\"payload_hash\":\"eji_gfOD9pQzrW6QDTWz4jhVk_dqe3q11DVbi6Qe4ks\",\"seq\":1,\"spec\":\"moss-0001\",\"subject\":\"moss:dev:checkout\",\"version\":1}"
+    },
+    {
+      "name": "nested",
+      "payload": {"b": 2, "a": 1, "nested": {"y": "z", "x": "y"}},
+      "payload_canonical": "{\"a\":1,\"b\":2,\"nested\":{\"x\":\"y\",\"y\":\"z\"}}",
+      "payload_hash_b64url": "zURBoOF4M_LkDVUg2MG_MWIvREB3t-Gdw_7GxsJ_bmI"
+    },
+    {
+      "name": "unicode",
+      "payload": {"msg": "café", "lang": "fr"},
+      "payload_canonical": "{\"lang\":\"fr\",\"msg\":\"café\"}",
+      "payload_hash_b64url": "knBxJGaIwYXRQnSdncu1eSJY4eQXtq3ieMXyjW3NYuM"
+    }
+  ]
+}

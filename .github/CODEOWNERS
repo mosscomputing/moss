@@ -1,0 +1,15 @@
+# CODEOWNERS - These users must approve PRs to protected files
+
+# Default owners for everything
+* @YsableWolf
+
+# Spec changes require explicit approval
+SPEC.md @YsableWolf
+conformance/ @YsableWolf
+
+# Core crypto requires careful review
+moss/crypto.py @YsableWolf
+moss/keystore.py @YsableWolf
+
+# CI/CD changes
+.github/ @YsableWolf
