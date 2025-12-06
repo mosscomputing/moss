@@ -9,7 +9,7 @@ updates:
     labels:
       - "dependencies"
     reviewers:
-      - "YsableWolf"
+      - "Lechatdiabolique"
 
   - package-ecosystem: "github-actions"
     directory: "/"
@@ -20,4 +20,4 @@ updates:
     labels:
       - "ci"
     reviewers:
-      - "YsableWolf"
+      - "Lechatdiabolique"

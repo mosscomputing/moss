@@ -138,4 +138,4 @@ MIT — see [LICENSE](LICENSE)
 
 - **Website:** [mosscomputing.com](https://mosscomputing.com)
 - **Spec:** [SPEC.md](SPEC.md)
-- **Discord:** [Join](https://discord.gg/mosscomputing)
+- **Discord:** [Join](https://discord.gg/2QewJsBc)

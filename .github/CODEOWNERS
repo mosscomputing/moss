@@ -4,12 +4,12 @@
 * @Lechatdiabolique
 
 # Spec changes require explicit approval
-SPEC.md @YsableWolf
-conformance/ @YsableWolf
+SPEC.md @Lechatdiabolique
+conformance/ @Lechatdiabolique
 
 # Core crypto requires careful review
-moss/crypto.py @YsableWolf
-moss/keystore.py @YsableWolf
+moss/crypto.py @Lechatdiabolique
+moss/keystore.py @Lechatdiabolique
 
 # CI/CD changes
-.github/ @YsableWolf
+.github/ @Lechatdiabolique

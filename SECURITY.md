@@ -12,7 +12,7 @@
 
 ### How to Report
 
-Email security concerns to: **security@mosscomputing.com**
+Email security concerns to: **ysablewolf@iampass.com**
 
 Include:
 - Description of the vulnerability
