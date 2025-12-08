@@ -8,7 +8,7 @@
 
 ## Abstract
 
-MOSS (Machine to Machine Operation Security System) is a cryptographic signing protocol for AI agent outputs. It provides identity, integrity, and replay protection using post-quantum cryptography.
+MOSS (Message Origin Signing System) is a cryptographic signing protocol for AI agent outputs. It provides identity, integrity, and replay protection using post-quantum cryptography.
 
 ## 1. Overview
 
