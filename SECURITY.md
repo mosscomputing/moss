@@ -76,10 +76,4 @@ MOSS uses:
 
 MOSS has not yet undergone a formal security audit. If you're interested in sponsoring an audit, please contact us.
 
-## PGP Key
 
-For encrypted communications, use our PGP key:
-
-```
-[PGP key to be added]
-```
