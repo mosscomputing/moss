@@ -1,6 +1,6 @@
 # MOSS
 
-MOSS is a signing protocol for AI agents. It binds cryptographic identities to agents and produces verifiable signatures on their outputs.
+MOSS (Message-Origin Signing System) is a signing protocol for AI agents. It binds cryptographic identities to agents and produces verifiable signatures on their outputs.
 
 [![CI](https://github.com/mosscomputing/moss/actions/workflows/ci.yml/badge.svg)](https://github.com/mosscomputing/moss/actions/workflows/ci.yml)
 [![PyPI](https://img.shields.io/pypi/v/moss-sdk)](https://pypi.org/project/moss-sdk/)
