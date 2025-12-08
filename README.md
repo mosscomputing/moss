@@ -1,6 +1,8 @@
 # MOSS
 
-MOSS (Message-Origin Signing System) is a signing protocol for AI agents. It binds cryptographic identities to agents and produces verifiable signatures on their outputs.
+Know exactly which agent produced what.
+
+MOSS (Message-Origin Signing System) is a cryptographic signing protocol for AI agents. It binds identities to agents and produces verifiable signatures on their outputs.
 
 [![CI](https://github.com/mosscomputing/moss/actions/workflows/ci.yml/badge.svg)](https://github.com/mosscomputing/moss/actions/workflows/ci.yml)
 [![PyPI](https://img.shields.io/pypi/v/moss-sdk)](https://pypi.org/project/moss-sdk/)
@@ -20,6 +22,14 @@ envelope = agent.sign({"action": "approved", "amount": 500})
 
 result = Subject.verify(envelope)
 assert result.valid
+```
+
+## Framework Integrations
+```bash
+pip install moss-crewai    # CrewAI
+pip install moss-autogen   # AutoGen
+pip install moss-langgraph # LangGraph
+pip install moss-langchain # LangChain
 ```
 
 ## CLI
@@ -68,13 +78,19 @@ MOSS implements `moss-0001`. See [SPEC.md](SPEC.md).
 
 Keys stored at `~/.moss/keys/`. Set `MOSS_KEY_PASSPHRASE` to encrypt at rest.
 
+## Links
+
+- [mosscomputing.com](https://mosscomputing.com) — Project site
+- [SPEC.md](SPEC.md) — Protocol specification
+- [PyPI](https://pypi.org/project/moss-sdk/) — Package
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Security
 
-Report vulnerabilities to ysablewolf@iampass.com. See [SECURITY.md](SECURITY.md).
+Report vulnerabilities to moss@iampass.com. See [SECURITY.md](SECURITY.md).
 
 ## License
 
